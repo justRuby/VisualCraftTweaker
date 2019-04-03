@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="VisualCraftTweaker.CUIElements.RecipeBlock"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Height="100" Width="100">
+    <Grid>
+        <Button x:Name="Recipe"
+                Height="80"
+                Width="80" 
+                Background="White"
+                BorderBrush="{x:Null}">
+
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="0"
+                                  Direction="0" 
+                                  BlurRadius="8" 
+                                  Color="#8C8C8C" 
+                                  Opacity="0.3"/>
+            </Button.Effect>
+
+        </Button>
+        
+    </Grid>
+</UserControl>

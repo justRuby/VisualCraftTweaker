@@ -1,0 +1,400 @@
+﻿<Window x:Class="VisualCraftTweaker.View.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Main" Height="600" Width="1280">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Grid.Column="0"
+                   Fill="#FFD36FCE"/>
+        
+        <!--ScriptFiles-->
+        <StackPanel x:Name="ScriptFileEditorStackPanel"
+                    Visibility="{Binding TicketVisibility}"
+                    Orientation="Vertical"
+                    Grid.Column="0"
+                    Margin="0,10,0,10">
+
+            <Button Width="40"
+                    Height="40"
+                    FontSize="16"
+                    Click="AddTicketBlock" 
+                    Background="#FFB653B1" 
+                    BorderBrush="{x:Null}">
+            </Button>
+
+            <TextBlock Text="New"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Focusable="False"
+                       Foreground="White"/>
+
+            <Button Width="40"
+                    Height="40"
+                    FontSize="16"
+                    Click="RemoveTicketBlock" 
+                    Background="#FFB653B1" 
+                    BorderBrush="{x:Null}">
+            </Button>
+
+            <TextBlock Text="Delete"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Focusable="False"
+                       Foreground="White"/>
+
+        </StackPanel>
+
+        <!--Recipes-->
+        <StackPanel x:Name="ItemEditorStackPanel"
+                    Visibility="{Binding RecipeVisibility}"
+                    Orientation="Vertical"
+                    Grid.Column="0"
+                    Margin="0,10,0,10">
+
+            <Button Width="40"
+                    Height="40"
+                    FontSize="16"
+                    Click="AddShapedRecipe" 
+                    Background="#FFB653B1" 
+                    BorderBrush="{x:Null}">
+            </Button>
+
+            <TextBlock Text="Shaped"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Focusable="False"
+                       Foreground="White"/>
+
+            <Button Width="40"
+                    Height="40"
+                    FontSize="16"
+                    Background="#FFB653B1" 
+                    BorderBrush="{x:Null}">
+            </Button>
+
+            <TextBlock Text="Shapless"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Focusable="False"
+                       Foreground="White"/>
+
+            <Button Width="40"
+                    Height="40"
+                    FontSize="16"
+                    Background="#FFB653B1" 
+                    BorderBrush="{x:Null}">
+            </Button>
+
+            <TextBlock Text="Remove"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Focusable="False"
+                       Foreground="White"/>
+
+            <Button Width="40"
+                    Height="40"
+                    FontSize="16"
+                    Click="DeleteRecipe" 
+                    Background="#FFB653B1" 
+                    BorderBrush="{x:Null}">
+            </Button>
+
+            <TextBlock Text="Delete"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Focusable="False"
+                       Foreground="White"/>
+
+            <Button Width="40"
+                    Height="40"
+                    FontSize="16"
+                    Click="BackToTicketsClick" 
+                    Background="#FFB653B1" 
+                    BorderBrush="{x:Null}">
+            </Button>
+
+            <TextBlock Text="Back"
+                       Margin="0,0,0,10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center" 
+                       Focusable="False"
+                       Foreground="White"/>
+
+        </StackPanel>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
+                <!--ScriptFiles-->
+                <WrapPanel x:Name="TicketBlockViewer"
+                           Margin="10"
+                           Visibility="{Binding TicketVisibility}"
+                           Grid.Column="0">
+
+                </WrapPanel>
+
+                <!--Recipes-->
+                <WrapPanel x:Name="RecipeBlockViewer"
+                           Margin="10"
+                           Visibility="{Binding RecipeVisibility}"
+                           Grid.Column="0">
+
+                </WrapPanel>
+
+                <!--Shaped/Shapless Craft-->
+                <Grid x:Name="ShapeCraftBlockViewer"
+                      Margin="10"
+                      Visibility="Hidden"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Grid.Column="0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="280"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="140"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.Column="0"
+                          Margin="20">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="80"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width ="80"/>
+                            <ColumnDefinition Width ="80"/>
+                            <ColumnDefinition Width ="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0"
+                                Grid.Row="0"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="1"
+                                Grid.Row="0"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="2"
+                                Grid.Row="0"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="0"
+                                Grid.Row="1"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="1"
+                                Grid.Row="1"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="2"
+                                Grid.Row="1"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="0"
+                                Grid.Row="2"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="1"
+                                Grid.Row="2"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                        <Button Grid.Column="2"
+                                Grid.Row="2"
+                                Margin="2"
+                                Background="Gainsboro"
+                                BorderBrush="Gainsboro"/>
+
+                    </Grid>
+
+                    <Rectangle Grid.Column="1"
+                               Fill="AliceBlue"
+                               Height="80"
+                               Width="80"/>
+
+                    <ScrollViewer Grid.Column="2">
+                        
+                        <WrapPanel Orientation="Vertical"
+                                   Margin="20">
+
+                            <Button Height="80"
+                                    Width="80"
+                                    Margin="2"
+                                    Background="Gainsboro"
+                                    BorderBrush="Gainsboro"/>
+                            
+                            <Button Height="80"
+                                    Width="80"
+                                    Margin="2"
+                                    Background="Gainsboro"
+                                    BorderBrush="Gainsboro"/>
+                            
+                            <Button Height="80"
+                                    Width="80"
+                                    Margin="2"
+                                    Background="Gainsboro"
+                                    BorderBrush="Gainsboro"/>
+
+                        </WrapPanel>
+                    </ScrollViewer>
+
+
+                </Grid>
+
+                <!--ScriptFiles-->
+                <StackPanel Orientation="Vertical" 
+                            Grid.Column="1"
+                            Visibility="{Binding TicketVisibility}"
+                            Margin="0,20,0,20">
+
+                    <TextBlock Text="Имя файла: "
+                               Foreground="#262626"
+                               FontSize="16"
+                               Margin="10"/>
+
+                    <TextBox FontSize="14"
+                             Text="{Binding MTicket.Name, UpdateSourceTrigger=PropertyChanged}"
+                             Foreground="#565656"
+                             Margin="20,0,20,0"/>
+
+                    <TextBlock Text="Описание: "
+                               Foreground="#262626"
+                               FontSize="16"
+                               Margin="10"/>
+
+                    <TextBox FontSize="14"
+                             Text="{Binding MTicket.Description}"
+                             Height="240"
+                             Foreground="#565656"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             AcceptsTab="True"
+                             SpellCheck.IsEnabled="True"
+                             Margin="20,0,20,0"/>
+
+                    <TextBlock Text="Автор: "
+                               Foreground="#262626"
+                               FontSize="16"
+                               Margin="10"/>
+
+                    <TextBox FontSize="14"
+                             Text="{Binding MTicket.Author}"
+                             Foreground="#565656"
+                             Margin="20,0,20,0"/>
+
+                </StackPanel>
+
+                <!--Recipe-->
+                <StackPanel Orientation="Vertical" 
+                            Grid.Column="1"
+                            Visibility="{Binding RecipeVisibility}"
+                            Margin="0,20,0,20">
+
+                    <TextBlock Text="Комментарий : "
+                               Foreground="#262626"
+                               FontSize="16"
+                               Margin="10"/>
+
+                    <TextBox FontSize="14"
+                             Text="{Binding MRecipe.Comment}"
+                             Height="360"
+                             Foreground="#565656"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             AcceptsTab="True"
+                             SpellCheck.IsEnabled="True"
+                             Margin="20,0,20,0"/>
+
+                </StackPanel>
+                
+                <!--CraftItem-->
+                <StackPanel Orientation="Vertical" 
+                            Grid.Column="1"
+                            Visibility="Hidden"
+                            Margin="0,20,0,20">
+
+                    <TextBlock Text="Название мода : "
+                               Foreground="#262626"
+                               FontSize="16"
+                               Margin="10"/>
+
+                    <TextBox FontSize="14"
+                             Foreground="#565656"
+                             Margin="20,0,20,10"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Тип : "
+                                   Foreground="#262626"
+                                   FontSize="16"
+                                   Margin="10"/>
+
+                        <TextBox FontSize="14"
+                                 Width="80"
+                                 Foreground="#565656"
+                                 Margin="0,10,20,10"/>
+
+                        <TextBlock Text="ID : "
+                                   Foreground="#262626"
+                                   FontSize="16"
+                                   Margin="10"/>
+
+                        <TextBox FontSize="14"
+                                 Width="80"
+                                 Foreground="#565656"
+                                 Margin="0,10,20,10"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+                        
+        </Grid>
+        
+        
+    </Grid>
+</Window>
